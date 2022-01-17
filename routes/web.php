@@ -18,17 +18,22 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::get('/admin', function () {
-    return view('admin.index');
-})->name('admin')->middleware(['auth', 'AdminOnly']);
+Route::prefix('admin')->middleware(['auth', 'AdminOnly'])->group(function() {
 
-Route::get('/admin/users', function () {
-    return view('admin.users.index');
-})->name('admin.users')->middleware(['auth', 'AdminOnly']);
+    Route::get('/', function () {
+        return view('admin.index');
+    })->name('admin');
 
-Route::get('/admin/books', function () {
-    return view('admin.books.index');
-})->name('admin.books')->middleware(['auth', 'AdminOnly']);
+    Route::get('/users', function () {
+        return view('admin.users.index');
+    })->name('admin.users');
+
+    Route::get('/books', function () {
+        return view('admin.books.index');
+    })->name('admin.books');
+});
+
+
 
 Route::get('/dashboard', function () {
     if (Auth::user()->role == 'admin') {

@@ -63,8 +63,29 @@
               </a>
             </li>
           </ul>
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+              <li class="nav-item">
+                    <a href="/logout" class="nav-link" id="logoutButton">
+                    <i class="nav-icon far fa-circle text-danger"></i>
+                    <p>Logout</p>
+                </a>
+              </li>
+          </ul>
         </nav>
         <!-- /.sidebar-menu -->
       </div>
       <!-- /.sidebar -->
     </aside>
+
+    <form action="{{ route('logout') }}" method="post" id="logout" class="d-none">
+        @csrf
+
+    </form>
+    <script>
+        const logoutForm = document.getElementById('logout');
+        const logoutButton = document.getElementById('logoutButton');
+        logoutButton.addEventListener('click', (event) => {
+            event.preventDefault();
+            logoutForm.submit();
+        })
+    </script>
