@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,21 +16,27 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
-// testing adminlte
 Route::get('/admin', function () {
     return view('admin.index');
-});
+})->name('admin')->middleware(['auth', 'AdminOnly']);
+
 Route::get('/admin/users', function () {
     return view('admin.users.index');
-});
+})->name('admin.users')->middleware(['auth', 'AdminOnly']);
+
 Route::get('/admin/books', function () {
     return view('admin.books.index');
-});
+})->name('admin.books')->middleware(['auth', 'AdminOnly']);
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    if (Auth::user()->role == 'admin') {
+        return redirect()->route('admin');
+    }else{
+        return redirect()->route('home');
+    }
+
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';

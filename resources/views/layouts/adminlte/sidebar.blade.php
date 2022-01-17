@@ -1,7 +1,7 @@
       <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="{{url('admin')}}" class="brand-link">
+    <a href="{{route('admin')}}" class="brand-link">
       <img src="{{asset('AdminLTE/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle " style="opacity: .8">
       <span class="brand-text font-weight-light">Admin | eLibrary</span>
     </a>
@@ -46,7 +46,7 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="{{url('admin/books')}}" class="nav-link">
+                  <a href="{{route('admin.books')}}" class="nav-link">
                     <i class="fas fa-book nav-icon"></i>
                     <p>Books</p>
                   </a>
@@ -54,7 +54,7 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a href="{{url('admin/users')}}" class="nav-link">
+              <a href="{{route('admin.users')}}" class="nav-link">
                 <i class="nav-icon fas fa-users"></i>
                 <p>
                   Database Users
