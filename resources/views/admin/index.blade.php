@@ -78,7 +78,10 @@
                   <h6 class="card-title">Special title treatment</h6>
 
                   <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="{{url('books')}}" class="btn btn-primary">Check them out</a>
+                  <a href="{{url('admin/books')}}" class="btn btn-primary mr-2">Books</a>
+                  <a href="{{url('admin/books')}}" class="btn btn-primary mr-2">Books</a>
+                  <a href="{{url('admin/books')}}" class="btn btn-primary mr-2">Books</a>
+                  <a href="{{url('admin/books')}}" class="btn btn-primary mr-2">Books</a>
                 </div>
               </div>
 
