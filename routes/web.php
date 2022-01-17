@@ -17,6 +17,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// testing adminlte
+Route::get('/admin', function () {
+    return view('admin.index');
+});
+Route::get('/admin/users', function () {
+    return view('admin.users.index');
+});
+Route::get('/admin/books', function () {
+    return view('admin.books.index');
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
