@@ -69,9 +69,9 @@
                             <p class="card-text">With supporting text below as a natural lead-in to additional content.
                             </p>
                             <a href="{{route('admin.books')}}" class="btn btn-primary mr-2">Books</a>
-                            <a href="{{route('admin.books')}}" class="btn btn-primary mr-2">Books</a>
-                            <a href="{{route('admin.books')}}" class="btn btn-primary mr-2">Books</a>
-                            <a href="{{route('admin.books')}}" class="btn btn-primary mr-2">Books</a>
+                            <a href="{{route('admin.books')}}" class="btn btn-warning mr-2">Novels</a>
+                            <a href="{{route('admin.books')}}" class="btn btn-success mr-2">Comics</a>
+                            <a href="{{route('admin.books')}}" class="btn btn-danger mr-2">Mangas</a>
                         </div>
                     </div>
 

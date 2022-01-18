@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
-use App\Http\Requests\StoreBookRequest;
 use App\Http\Requests\UpdateBookRequest;
+use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
@@ -13,9 +13,12 @@ class BookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function index()
     {
-        //
+        $dtbook = Book::all();
+        return view('admin.books.index',compact('dtbook'));
     }
 
     /**
@@ -25,7 +28,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.books.create');
     }
 
     /**
@@ -34,9 +37,19 @@ class BookController extends Controller
      * @param  \App\Http\Requests\StoreBookRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreBookRequest $request)
+    public function store(Request $request)
     {
-        //
+
+    //  dd($request->all());
+        Book::create([
+        'title' => $request->title,
+        'author'=> $request->author,
+        'synopsis'=> $request->synopsis,
+        'cover'=> $request->cover,
+        'status'=> $request->status,
+         ]);
+
+         return redirect()->route('admin.books');
     }
 
     /**

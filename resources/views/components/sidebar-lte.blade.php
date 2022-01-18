@@ -2,23 +2,14 @@
     <!-- Brand Logo -->
     <a href="{{route('admin')}}" class="brand-link">
       <img src="{{asset('AdminLTE/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle " style="opacity: .8">
-      <span class="brand-text font-weight-light">Admin - eLibrary</span>
+      <span class="brand-text font-weight-light">Admin Page</span>
     </a>
 
     <!-- Sidebar -->
     <div class="sidebar">
-        <!-- Sidebar user panel (optional) -->
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-          <div class="image">
-            <img src="{{asset('AdminLTE/dist/img/user2-160x160.jpg')}}" class="img-circle " alt="User Image">
-          </div>
-          <div class="info">
-            <a href="#" class="d-block">Alexander Pierce</a>
-          </div>
-        </div>
 
       <!-- SidebarSearch Form -->
-      <div class="form-inline">
+      <div class="form-inline mt-3">
         <div class="input-group" data-widget="sidebar-search">
           <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
           <div class="input-group-append">
@@ -32,8 +23,54 @@
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
+            <li class="nav-header">DATABASE</li>
+            <li class="nav-item">
+              <a href="{{route('admin.users')}}" class="nav-link">
+                <i class="nav-icon fas fa-users"></i>
+                <p>
+                  Database Users
+                  <span class="badge badge-danger right">New</span>
+                </p>
+              </a>
+            </li>
+            <li class="nav-item menu-open">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-copy"></i>
+                <p>
+                  Database Library
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{route('admin.books')}}" class="nav-link">
+                    <i class="fas fa-book nav-icon"></i>
+                    <p>Book</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="fas fa-book nav-icon"></i>
+                    <p>Novel</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="fas fa-book nav-icon"></i>
+                    <p>Comic</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="fas fa-book nav-icon"></i>
+                    <p>Manga</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            {{-- <!-- Admin LTE -->
+            <li class="nav-header">ADMIN LTE</li>
           <li class="nav-item menu-open">
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -44,7 +81,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./index.html" class="nav-link active">
+                <a href="#" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Dashboard v1</p>
                 </a>
@@ -648,7 +685,7 @@
           </li>
           <li class="nav-header">LABELS</li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link" id="logout">
               <i class="nav-icon far fa-circle text-danger"></i>
               <p class="text">Important</p>
             </a>
@@ -664,24 +701,14 @@
               <i class="nav-icon far fa-circle text-info"></i>
               <p>Informational</p>
             </a>
-          </li>
+          </li> --}}
         </ul>
       </nav>
+
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
   </aside>
 
 
-    <form action="{{ route('logout') }}" method="post" id="logout" class="d-none">
-        @csrf
 
-    </form>
-    <script>
-        const logoutForm = document.getElementById('logout');
-        const logoutButton = document.getElementById('logoutButton');
-        logoutButton.addEventListener('click', (event) => {
-            event.preventDefault();
-            logoutForm.submit();
-        })
-    </script>

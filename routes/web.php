@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,9 +32,11 @@ Route::prefix('admin')->middleware(['auth', 'AdminOnly'])->group(function() {
     Route::get('/books', function () {
         return view('admin.books.index');
     })->name('admin.books');
+    Route::get('/books', [BookController::class, 'index'])->name('admin.books');
+    Route::get('/books-create', [BookController::class, 'create'])->name('admin.books.create');
+    Route::post('/books-save', [BookController::class, 'store'])->name('admin.books.save');
+
 });
-
-
 
 Route::get('/dashboard', function () {
     if (Auth::user()->role == 'admin') {
@@ -45,3 +48,4 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
