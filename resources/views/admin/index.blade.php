@@ -1,18 +1,13 @@
+@include('layouts.adminlte.head')
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>eLibrary | Admin Homepage</title>
-  @include('layouts.adminlte.head')
-</head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
 
-@include('layouts.adminlte.navbar')
+<x-navbar-lte>
+</x-navbar-lte>
 
-@include('layouts.adminlte.sidebar')
+<x-sidebar-lte>
+</x-sidebar-lte>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
