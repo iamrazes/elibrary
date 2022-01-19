@@ -30,16 +30,17 @@
     <link rel="stylesheet" href="{{asset('AdminLTE/plugins/summernote/summernote-bs4.min.css')}}">
 
     @yield('head')
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
 
-        <x-navbar-lte>
-        </x-navbar-lte>
+        <x-adminlte.navbar>
+        </x-adminlte.navbar>
 
-        <x-sidebar-lte>
-        </x-sidebar-lte>
+        <x-adminlte.sidebar>
+        </x-adminlte.sidebar>
 
         @yield('content')
 
@@ -82,6 +83,8 @@
     <script src="{{asset('AdminLTE/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
     <!-- AdminLTE App -->
     <script src="{{asset('AdminLTE/dist/js/adminlte.js')}}"></script>
+
+    @yield('script')
 
 </body>
 

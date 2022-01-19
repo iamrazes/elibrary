@@ -25,7 +25,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-header">DATABASE</li>
             <li class="nav-item">
-              <a href="{{route('admin.users')}}" class="nav-link">
+              <a href="{{route('admin.users')}}" class="nav-link {{ request()->routeIs('admin.users') ? 'active' : '' }}">
                 <i class="nav-icon fas fa-users"></i>
                 <p>
                   Database Users
@@ -43,7 +43,7 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="{{route('admin.books')}}" class="nav-link">
+                  <a href="{{route('admin.books')}}" class="nav-link  {{ request()->routeIs('admin.books') ? 'active' : '' }}">
                     <i class="fas fa-book nav-icon"></i>
                     <p>Book</p>
                   </a>

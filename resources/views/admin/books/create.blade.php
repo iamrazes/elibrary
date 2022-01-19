@@ -28,7 +28,7 @@
         <div class="card card-primary card-outline">
             <h4 class="mt-3 ml-4">Add New Book</h4>
             <div class="card-body">
-                <form action="{{route('admin.books.save')}}" method="POST">
+                <form action="{{route('admin.books.save')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <input type="text" id="nama" name="title" class="form-control" placeholder="Title...">
@@ -40,10 +40,14 @@
                         <textarea type="text" id="nama" name="synopsis" class="form-control" placeholder="Synopsis..."></textarea>
                     </div>
                     <div class="form-group">
-                        <input type="text" id="nama" name="cover" class="form-control" placeholder="Cover...">
+                        <input type="file" id="nama" name="cover" class="" placeholder="Cover...">
                     </div>
                     <div class="form-group">
-                        <input type="text" id="nama" name="status" class="form-control" placeholder="Status...">
+                        <!-- <input type="text" id="nama" name="status" class="form-control" placeholder="Status..."> -->
+                        <select name="status" id="status" class="btn btn-white rounded border">
+                            <option value="Available">Available</option>
+                            <option value="Not Available">Not Available</option>
+                        </select>
                     </div>
 
                     <button type="submit" class="btn btn-success">Submit</button>

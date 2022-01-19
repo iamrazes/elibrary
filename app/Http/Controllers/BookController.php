@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Http\Requests\UpdateBookRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class BookController extends Controller
 {
@@ -40,16 +42,28 @@ class BookController extends Controller
     public function store(Request $request)
     {
 
-    //  dd($request->all());
-        Book::create([
-        'title' => $request->title,
-        'author'=> $request->author,
-        'synopsis'=> $request->synopsis,
-        'cover'=> $request->cover,
-        'status'=> $request->status,
-         ]);
+        $request->validate([
+            'cover' => ['required', 'image']
+        ]);
 
-         return redirect()->route('admin.books');
+         //  dd($request->all());
+
+         $randomString = Str::random(10);
+         $imgName = $randomString . str_replace(' ', '-', $request->file('cover')->getClientOriginalName());
+         $dir = 'public/BookCoverImages';
+         // dd($imgName);
+
+         Book::create([
+            'title' => $request->title,
+            'author'=> $request->author,
+            'synopsis'=> $request->synopsis,
+            'cover'=> $imgName,
+            'status'=> $request->status,
+            ]);
+
+         $request->file('cover')->storeAs($dir, $imgName);
+
+        return redirect()->route('admin.books');
     }
 
     /**
@@ -58,10 +72,13 @@ class BookController extends Controller
      * @param  \App\Models\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function show(Book $book)
+    public function show($author, $title)
     {
-        //
+        $book = Book::where(['author' => $author, 'title' => $title])->first();
+
+        return view('books.show',compact('book'));
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -92,8 +109,16 @@ class BookController extends Controller
      * @param  \App\Models\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Book $book)
+    public function destroy($id)
     {
-        //
+        $book = Book::findOrFail($id);
+
+        if (Storage::disk('local')->exists('public/BookCoverImages/' . $book->cover)) {
+            Storage::disk('local')->delete('public/BookCoverImages/' . $book->cover);
+        }
+
+        $book->delete();
+
+        return redirect()->route('admin.books')->with('status', 'Data berhasil dihapus!');
     }
 }
