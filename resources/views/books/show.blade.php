@@ -4,7 +4,6 @@
 
 
 <div>
-
     <p>Detils Book</p>
     <div >
         <div class="flex flex-row">
