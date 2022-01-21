@@ -5,8 +5,9 @@
 
 @section('content')
         <!-- CONTENT -->
+
         <div>
-            <div class="rounded-t-lg shadow-md mx-32 bg-white">
+            <div class="rounded-lg shadow-lg mx-32 bg-white">
                 <div>
                     <div class="border-b pt-4 pb-2 px-4">
                         <h1 class="text-lg ">Latest Book</h1>
@@ -37,7 +38,7 @@
                 </div>
             </div>
 
-            <div class="rounded-t-lg shadow-md mx-32 mt-16 bg-white">
+            <div class="rounded-lg shadow-lg mx-32 mt-16 bg-white">
                 <div>
                     <div class="border-b pt-4 pb-2 px-4">
                         <h1 class="text-lg ">Latest Novel</h1>
@@ -68,7 +69,7 @@
                 </div>
             </div>
 
-            <div class="rounded-t-lg shadow-md mx-32 mt-16 bg-white">
+            <div class="rounded-lg shadow-lg mx-32 mt-16 bg-white">
                 <div>
                     <div class="border-b pt-4 pb-2 px-4">
                         <h1 class="text-lg ">Latest Comic</h1>
@@ -99,7 +100,7 @@
                 </div>
             </div>
 
-            <div class="rounded-t-lg shadow-md mx-32 mt-16 bg-white">
+            <div class="rounded-lg shadow-lg mx-32 mt-16 bg-white">
                 <div>
                     <div class="border-b pt-4 pb-2 px-4">
                         <h1 class="text-lg ">Latest Manga</h1>

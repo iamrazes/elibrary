@@ -2,11 +2,9 @@
 
 ## About
 
-This is my college projects on building a website with Laravel.
+This is my college projects on building a website with Laravel. The purpose is to be able to building an application professionally and fulfill industry standards.
 
 ## About eLibrary
-
-eLibrary 
 
 ## About Laravel
 
