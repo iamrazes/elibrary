@@ -18,13 +18,13 @@
                             @foreach ($books as $book)
                             <div class="rounded-t-xl shadow">
                                 <div>
-                                    <div class="h-[24rem]">
+                                    <div class="h-[26rem]">
                                         <img src="{{ asset('storage/BookCoverImages/' . $book->cover) }}" class="rounded-t-xl w-full object-cover h-full" alt="">
                                     </div>
                                     <div class="flex flex-col p-2 items-center">
-                                        <p class="font-bold">{{$book->title}}</p>
+                                        <p class="font-bold text-center">{{$book->title}}</p>
                                         <p class="">{{$book->author}}</p>
-                                        <div class="my-2 ">
+                                        <div class="my-4 ">
                                             <a href="{{route('book.show', ['author' => $book->author, 'title' => $book->title])}}" class="bg-gray-700 px-4 py-1 rounded-md text-white hover:text-slate-400 hover:bg-slate-100 transition">View Book</a>
                                         </div>
                                     </div>
@@ -49,13 +49,13 @@
                             @foreach ($novels as $novel)
                             <div class="rounded-t-xl shadow">
                                 <div>
-                                    <div class="h-[24rem]">
+                                    <div class="h-[26rem]">
                                         <img src="{{ asset('storage/NovelCoverImages/' . $novel->cover) }}" class="rounded-t-xl w-full object-cover h-full" alt="">
                                     </div>
                                     <div class="flex flex-col p-2 items-center">
-                                        <p class="font-bold">{{$novel->title}}</p>
+                                        <p class="font-bold text-center">{{$novel->title}}</p>
                                         <p class="">{{$novel->author}}</p>
-                                        <div class="my-2 ">
+                                        <div class="my-4 ">
                                             <a href="{{route('novel.show', ['author' => $novel->author, 'title' => $novel->title])}}" class="bg-gray-700 px-4 py-1 rounded-md text-white hover:text-slate-400 hover:bg-slate-100 transition">View Novel</a>
                                         </div>
                                     </div>
@@ -80,13 +80,13 @@
                             @foreach ($comics as $comic)
                             <div class="rounded-t-xl shadow">
                                 <div>
-                                    <div class="h-[24rem]">
+                                    <div class="h-[26rem]">
                                         <img src="{{ asset('storage/ComicCoverImages/' . $comic->cover) }}" class="rounded-t-xl w-full object-cover h-full" alt="">
                                     </div>
                                     <div class="flex flex-col p-2 items-center justify-center">
-                                        <p class="font-bold">{{$comic->title}}</p>
+                                        <p class="font-bold text-center">{{$comic->title}}</p>
                                         <p class="">{{$comic->author}}</p>
-                                        <div class="my-2 ">
+                                        <div class="my-4 ">
                                             <a href="{{route('comic.show', ['author' => $comic->author, 'title' => $comic->title])}}" class="bg-gray-700 px-4 py-1 rounded-md text-white hover:text-slate-400 hover:bg-slate-100 transition">View Comic</a>
                                         </div>
                                     </div>
@@ -111,14 +111,14 @@
                             @foreach ($mangas as $manga)
                             <div class="rounded-t-xl shadow">
                                 <div>
-                                    <div class="h-[24rem]">
+                                    <div class="h-[26rem]">
                                         <img src="{{ asset('storage/MangaCoverImages/' . $manga->cover) }}" class="rounded-t-xl w-full object-cover h-full" alt="">
                                     </div>
-                                    <div class="flex flex-col p-2 items-center">
-                                        <p class="font-bold">{{$manga->title}}</p>
+                                    <div class="flex flex-col p-2 items-center justify-center">
+                                        <p class="font-bold text-center">{{$manga->title}}</p>
                                         <p class="">{{$manga->author}}</p>
-                                        <div class="my-2 ">
-                                            <a href="{{route('manga.show', ['author' => $manga->author, 'title' => $manga->title])}}" class="bg-gray-700 px-4 py-1 rounded-md text-white hover:text-slate-400 hover:bg-slate-100 transition">View Manga</a>
+                                        <div class="my-4 ">
+                                            <a href="{{route('manga.show', ['author' => $manga->author, 'title' => $manga->title])}}" class="bg-gray-700 px-4 py-2 rounded-md text-white hover:text-slate-400 hover:bg-slate-100 transition">View Manga</a>
                                         </div>
                                     </div>
                                 </div>
