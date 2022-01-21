@@ -9,7 +9,7 @@
                 <h1 class="text-xl pt-2 pl-2 pb-2">Manga Details</h1>
             </div>
         <div >
-            <div class="flex flex-row px-10 pt-5 pb-8 ">
+            <div class="flex flex-row px-10 pt-5 pb-8 justify-center">
 
                 <div class="h-[42rem] w-[32rem]">
                     <img src="{{ asset('storage/MangaCoverImages/' . $manga->cover) }}"
@@ -18,10 +18,10 @@
                 </div>
 
                 <div class="flex flex-col gap-2 pl-10">
-                    <div class="font-bold text-3xl">
+                    <div class="font-bold text-2xl">
                         <h1>"{{$manga->title}}"</h1>
                     </div>
-                    <div class="pt-3 text-xl font-semibold">
+                    <div class="pt-2 text-xl font-semibold">
                         <h1>{{$manga->author}}</h1>
                     </div>
                     <div class="w-[32rem]">

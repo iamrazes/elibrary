@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\AllBookController;
+use App\Http\Controllers\AllComicController;
+use App\Http\Controllers\AllMangaController;
+use App\Http\Controllers\AllNovelController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomepageController;
@@ -25,6 +29,11 @@ Route::get('/books/{author}/{title}', [BookController::class, 'show'])->name('bo
 Route::get('/novels/{author}/{title}', [NovelController::class, 'show'])->name('novel.show');
 Route::get('/comics/{author}/{title}', [ComicController::class, 'show'])->name('comic.show');
 Route::get('/mangas/{author}/{title}', [MangaController::class, 'show'])->name('manga.show');
+
+Route::get('/books', [AllBookController::class, 'index'])->name('allbook');
+Route::get('/novels', [AllNovelController::class, 'index'])->name('allnovel');
+Route::get('/comics', [AllComicController::class, 'index'])->name('allcomic');
+Route::get('/mangas', [AllMangaController::class, 'index'])->name('allmanga');
 
 Route::prefix('admin')->middleware(['auth', 'AdminOnly'])->group(function() {
 

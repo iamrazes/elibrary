@@ -34,7 +34,7 @@
                         </div>
                     </div>
                     <div class="flex justify-end mt-4 px-4 py-2 pb-4">
-                        <p><a href="#"  class="hover:text-gray-200 transition">View More...</a></p>
+                        <p><a href="{{ route('allbook') }}"  class="hover:text-gray-200 transition">View More...</a></p>
                     </div>
                 </div>
             </div>
@@ -65,7 +65,7 @@
                         </div>
                     </div>
                     <div class="flex justify-end mt-4 px-4 py-2 pb-4">
-                        <p><a href="#"  class="hover:text-gray-200 transition">View More...</a></p>
+                        <p><a href="{{ route('allnovel') }}"  class="hover:text-gray-200 transition">View More...</a></p>
                     </div>
                 </div>
             </div>
@@ -96,7 +96,7 @@
                         </div>
                     </div>
                     <div class="flex justify-end mt-4 px-4 py-2 pb-4">
-                        <p><a href="#"  class="hover:text-gray-200 transition">View More...</a></p>
+                        <p><a href="{{ route('allcomic') }}"  class="hover:text-gray-200 transition">View More...</a></p>
                     </div>
                 </div>
             </div>
@@ -127,7 +127,7 @@
                         </div>
                     </div>
                     <div class="flex justify-end mt-4 px-4 py-2 pb-4">
-                        <p><a href="#"  class="hover:text-gray-200 transition">View More...</a></p>
+                        <p><a href="{{ route('allmanga') }}"  class="hover:text-gray-200 transition">View More...</a></p>
                     </div>
                 </div>
             </div>

@@ -9,7 +9,7 @@
                 <h1 class="text-xl pt-2 pl-2 pb-2">Comic Details</h1>
             </div>
         <div >
-            <div class="flex flex-row px-10 pt-5 pb-8 ">
+            <div class="flex flex-row px-10 pt-5 pb-8 justify-center">
 
                 <div class="h-[42rem] w-[32rem]">
                     <img src="{{ asset('storage/ComicCoverImages/' . $comic->cover) }}"
