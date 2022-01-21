@@ -4,8 +4,8 @@
                 <div class="flex flex-row justify-between px-32 py-4 shadow-md bg-white">
                     <div class="flex flex-row gap-3">
                         <a href="{{route('homepage')}}" class="hover:text-gray-200 transition">Home</a>
-                        <a href="#" class="hover:text-gray-200 transition">About</a>
-                        <a href="#" class="hover:text-gray-200 transition">Contact</a>
+                        <a href="#" class="hover:text-gray-200 transition text-gray-200">About</a>
+                        <a href="#" class="hover:text-gray-200 transition text-gray-200">Contact</a>
                     </div>
                     <div class="flex flex-row gap-3">
                         @auth
