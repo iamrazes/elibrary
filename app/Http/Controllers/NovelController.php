@@ -39,7 +39,6 @@ class NovelController extends Controller
      */
     public function store(Request $request)
     {
-
         $request->validate([
             'cover' => ['required', 'image']
         ]);
@@ -74,7 +73,7 @@ class NovelController extends Controller
     {
         $novel = Novel::where(['author' => $author, 'title' => $title])->first();
 
-        return view('novels.show',compact('novel'));
+        return view('library.novels.show',compact('novel'));
     }
 
     /**

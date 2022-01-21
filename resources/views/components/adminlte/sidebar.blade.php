@@ -24,7 +24,7 @@
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-header">DATABASE</li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
               <a href="{{route('admin.users')}}" class="nav-link {{ request()->routeIs('admin.users') ? 'active' : '' }}">
                 <i class="nav-icon fas fa-users"></i>
                 <p>
@@ -32,7 +32,7 @@
                   <span class="badge badge-danger right">New</span>
                 </p>
               </a>
-            </li>
+            </li> --}}
             <li class="nav-item menu-open">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-copy"></i>
@@ -55,13 +55,13 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link">
+                  <a href="{{route('admin.comics')}}" class="nav-link {{ request()->routeIs(['admin.comics', 'admin.comics.create']) ? 'active' : '' }}">
                     <i class="fas fa-book nav-icon"></i>
                     <p>Comic</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link">
+                  <a href="{{route('admin.mangas')}}" class="nav-link {{ request()->routeIs(['admin.mangas', 'admin.mangas.create']) ? 'active' : '' }}">
                     <i class="fas fa-book nav-icon"></i>
                     <p>Manga</p>
                   </a>

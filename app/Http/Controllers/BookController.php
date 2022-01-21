@@ -75,7 +75,7 @@ class BookController extends Controller
     {
         $book = Book::where(['author' => $author, 'title' => $title])->first();
 
-        return view('books.show',compact('book'));
+        return view('library.books.show',compact('book'));
     }
 
 

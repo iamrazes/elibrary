@@ -1080,6 +1080,10 @@ select {
   border-width: 1px;
 }
 
+.border-0 {
+  border-width: 0px;
+}
+
 .border-b {
   border-bottom-width: 1px;
 }
@@ -1312,6 +1316,10 @@ select {
 
 .pb-16 {
   padding-bottom: 4rem;
+}
+
+.pt-0 {
+  padding-top: 0px;
 }
 
 .text-center {

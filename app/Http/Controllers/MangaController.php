@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Manga;
-use App\Http\Requests\StoreMangaRequest;
 use App\Http\Requests\UpdateMangaRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class MangaController extends Controller
 {
@@ -15,7 +17,8 @@ class MangaController extends Controller
      */
     public function index()
     {
-        //
+        $dtmanga = Manga::all();
+        return view('admin.mangas.index',compact('dtmanga'));
     }
 
     /**
@@ -25,7 +28,7 @@ class MangaController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.mangas.create');
     }
 
     /**
@@ -34,9 +37,30 @@ class MangaController extends Controller
      * @param  \App\Http\Requests\StoreMangaRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreMangaRequest $request)
+    public function store(Request $request)
     {
-        //
+        $request->validate([
+            'cover' => ['required', 'image']
+        ]);
+
+         //  dd($request->all());
+
+         $randomString = Str::random(10);
+         $imgName = $randomString . str_replace(' ', '-', $request->file('cover')->getClientOriginalName());
+         $dir = 'public/MangaCoverImages';
+         // dd($imgName);
+
+         Manga::create([
+            'title' => $request->title,
+            'author'=> $request->author,
+            'synopsis'=> $request->synopsis,
+            'cover'=> $imgName,
+            'status'=> $request->status,
+            ]);
+
+         $request->file('cover')->storeAs($dir, $imgName);
+
+        return redirect()->route('admin.mangas');
     }
 
     /**
@@ -45,9 +69,11 @@ class MangaController extends Controller
      * @param  \App\Models\Manga  $manga
      * @return \Illuminate\Http\Response
      */
-    public function show(Manga $manga)
+    public function show($author, $title)
     {
-        //
+        $manga = Manga::where(['author' => $author, 'title' => $title])->first();
+
+        return view('library.mangas.show',compact('manga'));
     }
 
     /**
@@ -79,8 +105,16 @@ class MangaController extends Controller
      * @param  \App\Models\Manga  $manga
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Manga $manga)
+    public function destroy($id)
     {
-        //
+        $manga = Manga::findOrFail($id);
+
+        if (Storage::disk('local')->exists('public/MangaCoverImages/' . $manga->cover)) {
+            Storage::disk('local')->delete('public/MangaCoverImages/' . $manga->cover);
+        }
+
+        $manga->delete();
+
+        return redirect()->route('admin.mangas')->with('status', 'Data has been removed!');
     }
 }

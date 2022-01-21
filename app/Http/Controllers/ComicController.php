@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comic;
-use App\Http\Requests\StoreComicRequest;
 use App\Http\Requests\UpdateComicRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class ComicController extends Controller
 {
@@ -15,7 +17,8 @@ class ComicController extends Controller
      */
     public function index()
     {
-        //
+        $dtcomic = Comic::all();
+        return view('admin.comics.index',compact('dtcomic'));
     }
 
     /**
@@ -25,7 +28,7 @@ class ComicController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.comics.create');
     }
 
     /**
@@ -34,9 +37,30 @@ class ComicController extends Controller
      * @param  \App\Http\Requests\StoreComicRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreComicRequest $request)
+    public function store(Request $request)
     {
-        //
+        $request->validate([
+            'cover' => ['required', 'image']
+        ]);
+
+         //  dd($request->all());
+
+         $randomString = Str::random(10);
+         $imgName = $randomString . str_replace(' ', '-', $request->file('cover')->getClientOriginalName());
+         $dir = 'public/ComicCoverImages';
+         // dd($imgName);
+
+         Comic::create([
+            'title' => $request->title,
+            'author'=> $request->author,
+            'synopsis'=> $request->synopsis,
+            'cover'=> $imgName,
+            'status'=> $request->status,
+            ]);
+
+         $request->file('cover')->storeAs($dir, $imgName);
+
+        return redirect()->route('admin.comics');
     }
 
     /**
@@ -45,9 +69,11 @@ class ComicController extends Controller
      * @param  \App\Models\Comic  $comic
      * @return \Illuminate\Http\Response
      */
-    public function show(Comic $comic)
+    public function show($author, $title)
     {
-        //
+        $comic = Comic::where(['author' => $author, 'title' => $title])->first();
+
+        return view('library.comics.show',compact('comic'));
     }
 
     /**
@@ -79,8 +105,16 @@ class ComicController extends Controller
      * @param  \App\Models\Comic  $comic
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Comic $comic)
+    public function destroy($id)
     {
-        //
+        $comic = Comic::findOrFail($id);
+
+        if (Storage::disk('local')->exists('public/ComicCoverImages/' . $comic->cover)) {
+            Storage::disk('local')->delete('public/ComicCoverImages/' . $comic->cover);
+        }
+
+        $comic->delete();
+
+        return redirect()->route('admin.comics')->with('status', 'Data has been removed!');
     }
 }

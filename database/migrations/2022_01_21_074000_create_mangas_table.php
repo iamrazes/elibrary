@@ -15,6 +15,11 @@ class CreateMangasTable extends Migration
     {
         Schema::create('mangas', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('author');
+            $table->longText('synopsis');
+            $table->string('cover');
+            $table->enum('status', ['Available', 'Not Available']);
             $table->timestamps();
         });
     }

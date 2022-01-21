@@ -2,9 +2,11 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BookController;
 use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\NovelController;
+use App\Http\Controllers\ComicController;
+use App\Http\Controllers\MangaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +23,8 @@ Route::get('/', [HomepageController::class, 'index'])->name('homepage');
 
 Route::get('/books/{author}/{title}', [BookController::class, 'show'])->name('book.show');
 Route::get('/novels/{author}/{title}', [NovelController::class, 'show'])->name('novel.show');
+Route::get('/comics/{author}/{title}', [ComicController::class, 'show'])->name('comic.show');
+Route::get('/mangas/{author}/{title}', [MangaController::class, 'show'])->name('manga.show');
 
 Route::prefix('admin')->middleware(['auth', 'AdminOnly'])->group(function() {
 
@@ -47,6 +51,23 @@ Route::prefix('admin')->middleware(['auth', 'AdminOnly'])->group(function() {
     Route::get('/novels-create', [NovelController::class, 'create'])->name('admin.novels.create');
     Route::post('/novels-save', [NovelController::class, 'store'])->name('admin.novels.save');
     Route::delete('/novels-delete/{id}', [NovelController::class, 'destroy'])->name('admin.novels.destroy');
+
+    Route::get('/comics', function () {
+        return view('admin.comics.index');
+    })->name('admin.comics');
+    Route::get('/comics', [ComicController::class, 'index'])->name('admin.comics');
+    Route::get('/comics-create', [ComicController::class, 'create'])->name('admin.comics.create');
+    Route::post('/comics-save', [ComicController::class, 'store'])->name('admin.comics.save');
+    Route::delete('/comics-delete/{id}', [ComicController::class, 'destroy'])->name('admin.comics.destroy');
+
+    Route::get('/mangas', function () {
+        return view('admin.mangas.index');
+    })->name('admin.mangas');
+    Route::get('/mangas', [MangaController::class, 'index'])->name('admin.mangas');
+    Route::get('/mangas-create', [MangaController::class, 'create'])->name('admin.mangas.create');
+    Route::post('/mangas-save', [MangaController::class, 'store'])->name('admin.mangas.save');
+    Route::delete('/mangas-delete/{id}', [MangaController::class, 'destroy'])->name('admin.mangas.destroy');
+
 });
 
 Route::get('/dashboard', function () {
