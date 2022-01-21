@@ -25,13 +25,13 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">DATABASE BOOKS</h1>
+                    <h1 class="m-0">DATABASE NOVELS</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{route('admin')}}">Home</a></li>
                         <li class="breadcrumb-item active">Database</li>
-                        <li class="breadcrumb-item active">Book</li>
+                        <li class="breadcrumb-item active">Novel</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -47,11 +47,11 @@
 
               <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title">Database for Books</h3>
+                  <h3 class="card-title">Database for Novels</h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                  <a href="{{route('admin.books.create')}}" class="btn btn-success mb-2"><i class="fas fa-plus-square mr-2"></i>Add Book</a>
+                  <a href="{{route('admin.novels.create')}}" class="btn btn-success mb-2"><i class="fas fa-plus-square mr-2"></i>Add Novel</a>
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
                     <tr>
@@ -64,17 +64,17 @@
                     </tr>
                     </thead>
                     <tbody>
-                        @foreach ($dtbook as $item)
+                        @foreach ($dtnovel as $item)
                         <tr>
                             <td class="text-center">
-                                <img class="" style="width:75px" src="{{ asset('storage/BookCoverImages/' . $item->cover) }}" alt="">
+                                <img class="" style="width:75px" src="{{ asset('storage/NovelCoverImages/' . $item->cover) }}" alt="">
                             </td>
                             <td>{{$item->title}}</td>
                             <td>{{$item->author}}</td>
                             <td>{{$item->synopsis}}</td>
                             <td>{{$item->status}}</td>
                             <td>
-                                <form action="{{route('admin.books.destroy',$item->id)}}" method="POST">
+                                <form action="{{route('admin.novels.destroy',$item->id)}}" method="POST">
                                     @csrf
                                     @method('DELETE')
 

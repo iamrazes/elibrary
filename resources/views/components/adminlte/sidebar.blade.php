@@ -43,13 +43,13 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="{{route('admin.books')}}" class="nav-link  {{ request()->routeIs('admin.books') ? 'active' : '' }}">
+                  <a href="{{route('admin.books')}}" class="nav-link {{ request()->routeIs(['admin.books', 'admin.books.create']) ? 'active' : '' }}">
                     <i class="fas fa-book nav-icon"></i>
                     <p>Book</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link">
+                  <a href="{{route('admin.novels')}}" class="nav-link {{ request()->routeIs(['admin.novels', 'admin.novels.create']) ? 'active' : '' }}">
                     <i class="fas fa-book nav-icon"></i>
                     <p>Novel</p>
                   </a>

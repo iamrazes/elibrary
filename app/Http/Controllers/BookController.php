@@ -15,13 +15,12 @@ class BookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
-
     public function index()
     {
         $dtbook = Book::all();
         return view('admin.books.index',compact('dtbook'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -119,6 +118,6 @@ class BookController extends Controller
 
         $book->delete();
 
-        return redirect()->route('admin.books')->with('status', 'Data berhasil dihapus!');
+        return redirect()->route('admin.books')->with('status', 'Data has been removed!');
     }
 }
