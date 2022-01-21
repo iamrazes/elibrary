@@ -6,7 +6,7 @@
 @section('content')
 
         <!-- CONTENT -->
-        <div>
+        <div class="antialiased">
 
             <div class="rounded-lg shadow-lg mx-32 bg-white">
                 <div>
