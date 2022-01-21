@@ -6,6 +6,8 @@ This is my college projects on building a website with Laravel. The purpose is t
 
 ## About eLibrary
 
+eLibrary is a digitalize library, whose it function similar to normal library which is is a collection of materials, books or media that are easily accessible for use and not just for display purposes.
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:

@@ -4,9 +4,10 @@
 @endsection
 
 @section('content')
-        <!-- CONTENT -->
 
+        <!-- CONTENT -->
         <div>
+
             <div class="rounded-lg shadow-lg mx-32 bg-white">
                 <div>
                     <div class="border-b pt-4 pb-2 px-4">
@@ -132,6 +133,5 @@
             </div>
 
         </div>
-
 
 @endsection
