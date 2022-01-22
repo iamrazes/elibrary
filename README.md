@@ -22,11 +22,11 @@ In one line cmd :
 
 Login Credentials :
 
-Email : super.admin@admin.com
+Email : admin@example.com
 
 Password : password
 
-*Make sure that your XAMPP/Laragon is turned on
+*Make sure that XAMPP/Laragon is turned on
 
 
 ## About Laravel
