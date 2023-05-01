@@ -1,9 +1,5 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-## About
-
-This is my college projects on building a website with Laravel. The purpose are to be able to build an application professionally and fulfill industry standards.
-
 ## About eLibrary
 
 eLibrary is a digitalize library, whose it function similar to normal library which is is a collection of materials, books or media that are easily accessible for use and not just for display purposes.
