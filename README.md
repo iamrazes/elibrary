@@ -18,7 +18,7 @@ In one line cmd :
 
 Additional command :
 - npm install
-- npm rundev, or
+- npm run dev, or
 - npm run build
 
 Login Credentials :
