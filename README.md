@@ -2,7 +2,7 @@
 
 ## About eLibrary
 
-eLibrary is a website-based information system that aims for digitizing physical library with uses like adding or removing books, giving information and availability, and giving easy access towards library itself.
+eLibrary is a web-based system designed to digitize traditional libraries. Its functions include book management (addition and removal), providing information and availability details, and facilitating convenient access to the library.
 
 ## Installation Guide
 
